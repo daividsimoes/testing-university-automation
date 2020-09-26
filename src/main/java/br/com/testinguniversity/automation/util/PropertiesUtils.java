@@ -12,11 +12,11 @@ import lombok.Setter;
 public class PropertiesUtils {
 
     @Value("${application.login.url}")
-    private String url;
+    private String urlBase;
 
-    @Value("application.login.default.username")
+    @Value("${application.login.default.username}")
     private String usernameDefault;
 
-    @Value("application.login.default.password")
+    @Value("${application.login.default.password}")
     private String passwordDefault;
 }
