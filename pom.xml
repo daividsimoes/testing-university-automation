@@ -14,7 +14,8 @@
         <cucumber.version>4.8.1</cucumber.version>
         <lombok.version>1.18.12</lombok.version>
         <selenium.version>3.141.59</selenium.version>
-        <web.driver.manager>3.7.1</web.driver.manager>
+        <web.driver.manager.version>3.7.1</web.driver.manager.version>
+        <javafaker.version>1.0.2</javafaker.version>
         <lombok.version>1.18.12</lombok.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -60,7 +61,13 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>${web.driver.manager}</version>
+            <version>${web.driver.manager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
         </dependency>
 
         <dependency>
