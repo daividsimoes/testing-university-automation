@@ -27,15 +27,48 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
         loginPageObject.setPasswordDefault();
     }
 
+    @When("I enter invalid username and password")
+    public void i_enter_invalid_username_and_passwor() {
+
+        String username = fakerUtils.generateRandomUsername();
+        String password = fakerUtils.generateRandomPassword();
+        loginPageObject.setUsername(username);
+        loginPageObject.setPassword(password);
+    }
+
     @When("I click on login button")
     public void i_click_on_login_button() {
 
         loginPageObject.clickLoginButton();
     }
 
+    @When("I click on create account button")
+    public void i_click_on_create_account_button() {
+
+        loginPageObject.clickCreateAccountButton();
+    }
+
     @Then("Should perform login successfully")
     public void should_perform_login_successfully() {
 
         loginPageObject.waitMainPage();
+    }
+
+    @Then("Should still be in login page")
+    public void should_still_be_in_login_page() {
+
+        loginPageObject.waitLoginPage();
+    }
+
+    @Then("Should show message {string}")
+    public void should_show_message(String message) {
+
+        loginPageObject.validateInvalidLoginMessage(message);
+    }
+
+    @Then("Should open create account page successfully")
+    public void should_open_create_account_page_successfully() {
+
+        loginPageObject.waitCreateAccountPage();
     }
 }
