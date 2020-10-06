@@ -3,6 +3,8 @@ package br.com.testinguniversity.automation.login;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.testinguniversity.automation.AbstractStepsDefinition;
+import br.com.testinguniversity.automation.pageobject.account.CreateAccountPageObject;
+import br.com.testinguniversity.automation.pageobject.course.CourseListPageObject;
 import br.com.testinguniversity.automation.pageobject.login.LoginPageObject;
 
 import io.cucumber.java.en.Given;
@@ -14,10 +16,37 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
     @Autowired
     private LoginPageObject loginPageObject;
 
+    @Autowired
+    private CourseListPageObject courseListPageObject;
+
+    @Autowired
+    private CreateAccountPageObject createAccountPageObject;
+
+    private String username;
+
+    private String password;
+
     @Given("I'm in the login page")
     public void i_m_in_the_login_page() {
 
         loginPageObject.openLoginPage();
+    }
+
+    @Given("I create a new user")
+    public void i_create_a_new_user() {
+
+        username = fakerUtils.generateRandomUsername();
+        password = fakerUtils.generateRandomPassword();
+
+        loginPageObject.openLoginPage();
+        loginPageObject.clickCreateAccountButton();
+        createAccountPageObject.waitCreateAccountPage();
+
+        createAccountPageObject.setNewAccountUsername(username);
+        createAccountPageObject.setNewAccountPassword(password);
+        createAccountPageObject.clickSubmitButton();
+
+        loginPageObject.waitLoginPage();
     }
 
     @When("I enter default username and password")
@@ -27,11 +56,18 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
         loginPageObject.setPasswordDefault();
     }
 
+    @When("I enter username and password")
+    public void i_enter_username_and_password() {
+
+        loginPageObject.setUsername(username);
+        loginPageObject.setPassword(password);
+    }
+
     @When("I enter invalid username and password")
     public void i_enter_invalid_username_and_passwor() {
 
-        String username = fakerUtils.generateRandomUsername();
-        String password = fakerUtils.generateRandomPassword();
+        username = fakerUtils.generateRandomUsername();
+        password = fakerUtils.generateRandomPassword();
         loginPageObject.setUsername(username);
         loginPageObject.setPassword(password);
     }
@@ -51,7 +87,7 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
     @Then("Should perform login successfully")
     public void should_perform_login_successfully() {
 
-        loginPageObject.waitMainPage();
+        courseListPageObject.waitCourseListPage();
     }
 
     @Then("Should still be in login page")
@@ -69,6 +105,6 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
     @Then("Should open create account page successfully")
     public void should_open_create_account_page_successfully() {
 
-        loginPageObject.waitCreateAccountPage();
+        createAccountPageObject.waitCreateAccountPage();
     }
 }

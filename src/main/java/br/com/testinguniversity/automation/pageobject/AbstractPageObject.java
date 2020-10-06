@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.testinguniversity.automation.util.FakerUtils;
 import br.com.testinguniversity.automation.util.LocatorsUtils;
 import br.com.testinguniversity.automation.util.PropertiesUtils;
 
@@ -26,6 +25,11 @@ public class AbstractPageObject {
 
     @Autowired
     protected LocatorsUtils locatorsUtils;
+
+    protected void openPage(String url) {
+
+        driver.get(url);
+    }
 
     protected void waitUntilElementIsVisible(By locator) {
 
