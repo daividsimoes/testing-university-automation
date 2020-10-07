@@ -4,7 +4,6 @@
 *.ear
 *.zip
 *.tar.gz
-*.rar
 *.class
 .classpath
 .settings
