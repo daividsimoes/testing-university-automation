@@ -2,7 +2,7 @@ package br.com.testinguniversity.automation.pageobject.locators;
 
 import org.openqa.selenium.By;
 
-public class CreateAccountPageLocators {
+public class AccountPageLocators {
 
     public static final By CREATE_ACCOUNT_USERNAME_INPUT_TEXT = By.id("add-account-username");
 

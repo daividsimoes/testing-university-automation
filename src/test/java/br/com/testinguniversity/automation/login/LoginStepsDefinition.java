@@ -3,7 +3,7 @@ package br.com.testinguniversity.automation.login;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.testinguniversity.automation.AbstractStepsDefinition;
-import br.com.testinguniversity.automation.pageobject.account.CreateAccountPageObject;
+import br.com.testinguniversity.automation.pageobject.account.AccountPageObject;
 import br.com.testinguniversity.automation.pageobject.course.CourseListPageObject;
 import br.com.testinguniversity.automation.pageobject.login.LoginPageObject;
 
@@ -20,7 +20,7 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
     private CourseListPageObject courseListPageObject;
 
     @Autowired
-    private CreateAccountPageObject createAccountPageObject;
+    private AccountPageObject accountPageObject;
 
     private String username;
 
@@ -40,11 +40,11 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
 
         loginPageObject.openLoginPage();
         loginPageObject.clickCreateAccountButton();
-        createAccountPageObject.waitCreateAccountPage();
+        accountPageObject.waitCreateAccountPage();
 
-        createAccountPageObject.setNewAccountUsername(username);
-        createAccountPageObject.setNewAccountPassword(password);
-        createAccountPageObject.clickSubmitButton();
+        accountPageObject.setNewAccountUsername(username);
+        accountPageObject.setNewAccountPassword(password);
+        accountPageObject.clickSubmitButton();
 
         loginPageObject.waitLoginPage();
     }
@@ -105,6 +105,6 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
     @Then("Should open create account page successfully")
     public void should_open_create_account_page_successfully() {
 
-        createAccountPageObject.waitCreateAccountPage();
+        accountPageObject.waitCreateAccountPage();
     }
 }
