@@ -1,11 +1,9 @@
 package br.com.testinguniversity.automation.pageobject.account;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.springframework.stereotype.Component;
 
 import br.com.testinguniversity.automation.pageobject.AbstractPageObject;
-import br.com.testinguniversity.automation.pageobject.locators.AccountPageLocators;
 
 @Component
 public class AccountPageObject extends AbstractPageObject {
@@ -37,18 +35,19 @@ public class AccountPageObject extends AbstractPageObject {
         clickElement(webElement);
     }
 
+    public void clickGoBackButton() {
+
+        webElement = findElementBy(AccountPageLocators.CREATE_ACCOUNT_GO_BACK_BUTTON);
+        clickElement(webElement);
+    }
+
     public WebElement getUsernameInputText() {
 
-        return getWebElement(AccountPageLocators.CREATE_ACCOUNT_USERNAME_INPUT_TEXT);
+        return findElementBy(AccountPageLocators.CREATE_ACCOUNT_USERNAME_INPUT_TEXT);
     }
 
     public WebElement getPasswordInputText() {
 
-        return getWebElement(AccountPageLocators.CREATE_ACCOUNT_PASSWORD_INPUT_TEXT);
-    }
-
-    private WebElement getWebElement(By locator) {
-
-        return driver.findElement(locator);
+        return findElementBy(AccountPageLocators.CREATE_ACCOUNT_PASSWORD_INPUT_TEXT);
     }
 }

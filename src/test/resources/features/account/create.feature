@@ -17,3 +17,8 @@ Feature: Create Account
         When I enter only username
         And I click on submit button
         Then Should show error message "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" for password field
+
+    Scenario: Validate go back button return to login page
+        Given I'm in the create account page
+        When I click on go back button
+        Then Should return to login page

@@ -2,7 +2,6 @@ package br.com.testinguniversity.automation.account;
 
 import static org.junit.Assert.assertEquals;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,9 +20,6 @@ public class AccountStepsDefinition extends AbstractStepsDefinition {
 
     @Autowired
     private LoginPageObject loginPageObject;
-
-    @Autowired
-    private WebDriver driver;
 
     private String username;
 
@@ -65,7 +61,12 @@ public class AccountStepsDefinition extends AbstractStepsDefinition {
 
         username = fakerUtils.generateRandomUsername();
         accountPageObject.setNewAccountUsername(username);
+    }
 
+    @When("I click on go back button")
+    public void i_click_on_go_back_button() {
+
+        accountPageObject.clickGoBackButton();
     }
 
     @Then("Should return to login page")

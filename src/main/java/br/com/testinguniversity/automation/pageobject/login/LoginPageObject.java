@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.springframework.stereotype.Component;
 
 import br.com.testinguniversity.automation.pageobject.AbstractPageObject;
-import br.com.testinguniversity.automation.pageobject.locators.LoginPageLocators;
 
 @Component
 public class LoginPageObject extends AbstractPageObject {

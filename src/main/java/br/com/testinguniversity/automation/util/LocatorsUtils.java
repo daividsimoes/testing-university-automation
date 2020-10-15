@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class LocatorsUtils {
 
-    public By normalizeLocatorByXpath(By by, Object... args) {
+    public By normalizeLocatorByXpath(By locator, Object... args) {
 
-        String locator = getLocator(by);
-        return By.xpath(MessageFormat.format(locator, args));
+        String xpath = getLocatorByXpath(locator);
+        return By.xpath(MessageFormat.format(xpath, args));
     }
 
-    private String getLocator(By by) {
+    private String getLocatorByXpath(By locator) {
 
-        return StringUtils.substringAfter(by.toString(), "By.xpath: ");
+        return StringUtils.substringAfter(locator.toString(), "By.xpath: ");
     }
 }
