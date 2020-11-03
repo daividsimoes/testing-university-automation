@@ -10,7 +10,16 @@ This project was developed using some technologies and frameworks like:
 # Requirements
 1. JDK 1.8
 2. Apache Tomcat 8.5
-3. Chrome and/or Firefox
+3. IntelliJ IDE
+4. Chrome and/or Firefox
+
+# Install Cucumber for Java
+1. Open IntelliJ IDE
+2. Go to File -> Settings
+3. Go to Plugins
+4. Search for "Cucumber for Java"
+5. Install
+![](/src/main/resources/images/cucumber_for_java.png)
 
 # How to start Web Application
 The web application is in the directory: src/main/resources/apache-tomcat-8.5.57-with-deployed-application

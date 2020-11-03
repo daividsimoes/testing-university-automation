@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 @Configuration
 @ConditionalOnProperty(name = "application.webdriver", havingValue = "firefox")
-public class FireFoxDriver {
+public class FirefoxDriver {
 
     private final String FIREFOX_DRIVER_VERSION = "v0.25.0";
 
@@ -19,7 +19,7 @@ public class FireFoxDriver {
 
         WebDriverManager.firefoxdriver().version(FIREFOX_DRIVER_VERSION).setup();
 
-        WebDriver webDriver = new FirefoxDriver();
+        WebDriver webDriver = new org.openqa.selenium.firefox.FirefoxDriver();
         webDriver.manage().window().maximize();
 
         return webDriver;
