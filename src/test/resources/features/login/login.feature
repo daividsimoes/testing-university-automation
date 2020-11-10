@@ -1,4 +1,4 @@
-Feature: Application login
+Feature: Application Login
 
     Scenario: Login in application with default user
         Given I'm in the login page

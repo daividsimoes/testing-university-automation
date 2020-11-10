@@ -14,7 +14,7 @@ public class LoginPageLocators {
     protected static final By LOGIN_BUTTON = By.cssSelector(".login-form .green-backgroud-btn[type='submit']");
 
     protected static final By CREATE_ACCOUNT_BUTTON = By
-            .xpath("//form[contains(@class, 'login-form')]//button[contains(@class, red-backgroud-btn) and contains(text(), 'Create Account')]");
+            .xpath("//form[contains(@class, 'login-form')]//button[contains(@class, 'red-backgroud-btn') and contains(text(), 'Create Account')]");
 
     protected static final By INVALID_USER_PASSWORD = By.
             xpath("//form[contains(@class, 'login-form')]//b[contains(text(), ''{0}'')]");

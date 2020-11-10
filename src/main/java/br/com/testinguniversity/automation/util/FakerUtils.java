@@ -1,7 +1,5 @@
 package br.com.testinguniversity.automation.util;
 
-import java.util.Locale;
-
 import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
@@ -13,7 +11,7 @@ public class FakerUtils {
 
     public FakerUtils(){
 
-        faker = new Faker(new Locale("pt-BR"));
+        faker = new Faker();
     }
 
     public String generateRandomUsername() {
@@ -23,6 +21,16 @@ public class FakerUtils {
 
     public String generateRandomPassword() {
 
-       return faker.regexify("[A-Za-z1-9]{8}");
+       return faker.regexify("[0-9]{2}[A-Z]{3}[a-z]{3}");
+    }
+
+    public String generateRandomCourseName() {
+
+        return faker.educator().course();
+    }
+
+    public int GenerateRandomIntNumberBetween(int min, int max) {
+
+        return faker.number().numberBetween(min, max);
     }
 }

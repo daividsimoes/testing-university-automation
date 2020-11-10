@@ -19,6 +19,7 @@ This project was developed using some technologies and frameworks like:
 3. Go to Plugins
 4. Search for "Cucumber for Java"
 5. Install
+
 ![](/src/main/resources/images/cucumber_for_java.png)
 
 # How to start Web Application

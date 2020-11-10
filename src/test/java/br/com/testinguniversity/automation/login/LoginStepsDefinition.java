@@ -38,6 +38,9 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
         username = fakerUtils.generateRandomUsername();
         password = fakerUtils.generateRandomPassword();
 
+        System.out.println("username "+ username);
+        System.out.println("password " + password);
+
         loginPageObject.openLoginPage();
         loginPageObject.clickCreateAccountButton();
         accountPageObject.waitCreateAccountPage();
@@ -64,7 +67,7 @@ public class LoginStepsDefinition extends AbstractStepsDefinition {
     }
 
     @When("I enter invalid username and password")
-    public void i_enter_invalid_username_and_passwor() {
+    public void i_enter_invalid_username_and_password() {
 
         username = fakerUtils.generateRandomUsername();
         password = fakerUtils.generateRandomPassword();
